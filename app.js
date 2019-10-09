@@ -23,6 +23,15 @@ app.use(bodyParser.json())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.use((err, req, res, next) => {
+    if(err){
+        res.status(400).send('Invalid Json data').end();
+    }
+    else {
+        next();
+    }
+})
+
 fs.readdirSync('./controllers').forEach(function(file){
     if(file.substr(-3) == '.js'){
         var router = require('./controllers/' + file)

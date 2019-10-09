@@ -3,7 +3,7 @@ const config = require('./config');
 
 // Environment variable for Mongo DB Connection String
 
-var dbURI = process.env.DBURI;
+let dbURI = process.env.DBURI;
 
 if(dbURI == null){
 
