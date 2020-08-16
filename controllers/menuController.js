@@ -9,8 +9,7 @@ const OrdersModel = require('../models/OrdersModel');
 
 module.exports.controller = function(app){
     
-    app.get('/api/orders', gatekeeper.AuthenticateEnterpriseAndUser , (req, res) => {
-        res.send("Hey There..!! You are on the order controller now");
-    });
-
+    app.get('/api/menus', gatekeeper.AuthenticateEnterpriseAndUser , (req, res) => {
+        res.send("Hey There..!! You are on the menu controller now");
+    })
 }
