@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 
 // Define NotificationSchema
 const NotificationSchema = new Schema({
-    notificationId: { 
-        type: String, 
-        unique: true 
+    notificationId: {
+        type: String,
+        unique: true
     },
     type: {
         type: String
@@ -18,22 +18,22 @@ const NotificationSchema = new Schema({
     status: {
         type: String
     },
-    createdBy: { 
-        type: String 
+    createdBy: {
+        type: String
     },
-    updatedBy: { 
-        type: String 
+    updatedBy: {
+        type: String
     },
-    createdOn: { 
-        type: Date, 
-        default: Date.now 
+    createdOn: {
+        type: Date,
+        default: Date.now
     },
     createdOn_str: {
         type: String
     },
-    updatedOn: { 
-        type: Date, 
-        default: Date.now 
+    updatedOn: {
+        type: Date,
+        default: Date.now
     },
     updatedOn_str: {
         type: String
@@ -42,39 +42,39 @@ const NotificationSchema = new Schema({
 
 // Define UserSchema
 const UserSchema = new Schema({
-    userId: { 
-        type: String, 
-        unique: true 
+    userId: {
+        type: String,
+        unique: true
     },
-    userType: { 
-        type: String 
+    userType: {
+        type: String
     },
-    userName: { 
-        type: String 
+    userName: {
+        type: String
     },
-    password: { 
-        type: String 
+    password: {
+        type: String
     },
-    passwordSalt: { 
-        type: String 
+    passwordSalt: {
+        type: String
     },
-    name: { 
-        type: String 
+    name: {
+        type: String
     },
-    email: { 
-        type: String 
+    email: {
+        type: String
     },
-    phone: { 
-        type: String 
+    phone: {
+        type: String
     },
-    mobile: { 
-        type: String 
+    mobile: {
+        type: String
     },
-    adress: { 
-        type: String 
+    adress: {
+        type: String
     },
-    imageUri: { 
-        type: String 
+    imageUri: {
+        type: String
     },
     status: {
         type: String,
@@ -83,22 +83,22 @@ const UserSchema = new Schema({
     notifications: [
         NotificationSchema
     ],
-    createdBy: { 
-        type: String 
+    createdBy: {
+        type: String
     },
-    updatedBy: { 
-        type: String 
+    updatedBy: {
+        type: String
     },
-    createdOn: { 
-        type: Date, 
-        default: Date.now 
+    createdOn: {
+        type: Date,
+        default: Date.now
     },
     createdOn_str: {
         type: String
     },
-    updatedOn: { 
-        type: Date, 
-        default: Date.now 
+    updatedOn: {
+        type: Date,
+        default: Date.now
     },
     updatedOn_str: {
         type: String
@@ -107,9 +107,9 @@ const UserSchema = new Schema({
 
 // Define EnterpriseSchema
 const EnterpriseSchema = new Schema({
-    enterpriseId: { 
-        type: String, 
-        unique: true 
+    enterpriseId: {
+        type: String,
+        unique: true
     },
     name: {
         type: String
@@ -121,25 +121,25 @@ const EnterpriseSchema = new Schema({
         type: String,
         default: "ACTIVE"
     },
-    users : [
+    users: [
         UserSchema
     ],
-    createdBy: { 
-        type: String 
+    createdBy: {
+        type: String
     },
-    updatedBy: { 
-        type: String 
+    updatedBy: {
+        type: String
     },
-    createdOn: { 
-        type: Date, 
-        default: Date.now 
+    createdOn: {
+        type: Date,
+        default: Date.now
     },
     createdOn_str: {
         type: String
     },
-    updatedOn: { 
-        type: Date, 
-        default: Date.now 
+    updatedOn: {
+        type: Date,
+        default: Date.now
     },
     updatedOn_str: {
         type: String
@@ -152,7 +152,7 @@ module.exports.enterpriseModel = enterpriseModel;
 
 module.exports.findOneByQuery = (query, callback) => {
     enterpriseModel.findOne(query).then((data) => {
-        if(data){
+        if (data) {
             callback(null, data);
         }
         else {
@@ -167,11 +167,11 @@ module.exports.findOneByQuery = (query, callback) => {
             code: 500
         }, null);
     });
-}
+};
 
 module.exports.findAllByQuery = (query, callback) => {
     enterpriseModel.find(query).then((data) => {
-        if(data){
+        if (data) {
             callback(null, data);
         }
         else {
@@ -186,4 +186,4 @@ module.exports.findAllByQuery = (query, callback) => {
             code: 500
         }, null);
     });
-}
+};

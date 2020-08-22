@@ -6,9 +6,9 @@ const Schema = mongoose.Schema;
 
 // Define OrderSchema
 const OrderSchema = new Schema({
-    orderId: { 
-        type: String, 
-        unique: true 
+    orderId: {
+        type: String,
+        unique: true
     },
     userId: {
         type: String
@@ -16,35 +16,35 @@ const OrderSchema = new Schema({
     enterpriseId: {
         type: String
     },
-    orderNumber: { 
-        type: Number 
+    orderNumber: {
+        type: Number
     },
-    orderType: { 
-        type: String 
+    orderType: {
+        type: String
     },
-    placedOrder : [
+    placedOrder: [
         MenusModel.customMenuSchema
     ],
     status: {
         type: String,
         default: "ACTIVE"
     },
-    createdBy: { 
-        type: String 
+    createdBy: {
+        type: String
     },
-    updatedBy: { 
-        type: String 
+    updatedBy: {
+        type: String
     },
-    createdOn: { 
-        type: Date, 
-        default: Date.now 
+    createdOn: {
+        type: Date,
+        default: Date.now
     },
     createdOn_str: {
         type: String
     },
-    updatedOn: { 
-        type: Date, 
-        default: Date.now 
+    updatedOn: {
+        type: Date,
+        default: Date.now
     },
     updatedOn_str: {
         type: String
@@ -57,7 +57,7 @@ module.exports.orderModel = orderModel;
 
 module.exports.findOneByQuery = (query, callback) => {
     orderModel.findOne(query).then((data) => {
-        if(data){
+        if (data) {
             callback(null, data);
         }
         else {
@@ -72,11 +72,11 @@ module.exports.findOneByQuery = (query, callback) => {
             code: 500
         }, null);
     });
-}
+};
 
 module.exports.findAllByQuery = (query, callback) => {
     orderModel.find(query).then((data) => {
-        if(data){
+        if (data) {
             callback(null, data);
         }
         else {
@@ -91,4 +91,4 @@ module.exports.findAllByQuery = (query, callback) => {
             code: 500
         }, null);
     });
-}
+};

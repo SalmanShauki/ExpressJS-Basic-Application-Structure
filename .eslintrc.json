@@ -1,0 +1,21 @@
+{
+    "env": {
+        "es2020": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 11
+    },
+    // Below Rule settings are done to help write code the way i want by setting some standards.
+    "rules": {
+        "block-scoped-var": "error",
+        "default-case": "warn",
+        "default-case-last": "warn",
+        "semi": "warn",
+        "eqeqeq": "warn",
+        "no-delete-var": "off",
+        "no-unused-vars": "off",
+        "no-var": "warn"
+    }
+}

@@ -11,31 +11,31 @@ const UsersModel = require('../models/UsersModel');
 // });
 
 // Describe Mocha Tests
-describe('Finding records', () => {
+// describe('Finding records', () => {
 
-    // Runs before each below test
-    beforeEach((done) => {
-        let user = new UsersModel({
-            userId : 'asd7657asdasdgasdasd786',
-            userName : 'Salman'
-        });
+//     // Runs before each below test
+//     beforeEach((done) => {
+//         let user = new UsersModel({
+//             userId : 'asd7657asdasdgasdasd786',
+//             userName : 'Salman'
+//         });
 
-        user.save().then(() => {
-            done();
-        }).catch((err) => {
-            done();
-        })
-    });
-
-//     // Create Tests
-//     it('Find one record from a database', (done) => {
-
-//         UsersModel.findOne({ userName : 'Salman' }).then((data) => {
-//             assert(data != null || data != '')
+//         user.save().then(() => {
 //             done();
 //         }).catch((err) => {
 //             done();
 //         })
 //     });
 
-});
+// //     // Create Tests
+// //     it('Find one record from a database', (done) => {
+
+// //         UsersModel.findOne({ userName : 'Salman' }).then((data) => {
+// //             assert(data != null || data != '')
+// //             done();
+// //         }).catch((err) => {
+// //             done();
+// //         })
+// //     });
+
+// });

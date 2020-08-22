@@ -31,19 +31,19 @@ if (env !== 'development') {
     logs = {
         stream: {
             write: (message, encoding) => {
-                winston.info(message)
+                winston.info(message);
             }
         }
-    }
+    };
 }
 
 // Logging middleware
-app.use(morgan(logs))
-app.use(helmet())
-app.use(methodOverride())
+app.use(morgan(logs));
+app.use(helmet());
+app.use(methodOverride());
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // parse application/json
 app.use((req, res, next) => {
@@ -65,7 +65,7 @@ const getDurationInMilliseconds = (start) => {
     const diff = process.hrtime(start);
 
     return (diff[0] * NS_PER_SEC + diff[1]) / NS_TO_MS;
-}
+};
 
 app.use((req, res, next) => {
     Logger.log('info', `${req.method} ${req.originalUrl} [STARTED]`);
@@ -74,17 +74,17 @@ app.use((req, res, next) => {
     res.on('finish', () => {
         const durationInMilliseconds = getDurationInMilliseconds(start);
         const durationInSeconds = (durationInMilliseconds / 1000).toFixed(2);
-        Logger.log('info', `${req.method} ${req.originalUrl} [FINISHED] ${durationInSeconds.toLocaleString()} sec ${durationInMilliseconds.toLocaleString()} ms.`)
-    })
+        Logger.log('info', `${req.method} ${req.originalUrl} [FINISHED] ${durationInSeconds.toLocaleString()} sec ${durationInMilliseconds.toLocaleString()} ms.`);
+    });
 
     res.on('close', () => {
         const durationInMilliseconds = getDurationInMilliseconds(start);
         const durationInSeconds = (durationInMilliseconds / 1000).toFixed(2);
-        Logger.log('info', `${req.method} ${req.originalUrl} [CLOSED] ${durationInSeconds.toLocaleString()} sec ${durationInMilliseconds.toLocaleString()} ms.`)
-    })
+        Logger.log('info', `${req.method} ${req.originalUrl} [CLOSED] ${durationInSeconds.toLocaleString()} sec ${durationInMilliseconds.toLocaleString()} ms.`);
+    });
 
     next();
-})
+});
 
 app.use(compress({
     threshold: 512
@@ -94,23 +94,23 @@ app.use(compress({
 app.use((req, res, next) => {
     Logger.log('info', 'Setting up the socket timeout to 10 mins');
     req.socket.setTimeout(600000);
-})
+});
 
 // Read all the controller files
 fs.readdirSync('./controllers').forEach((file) => {
-    if (file.substr(-3) == '.js') {
-        let router = require('./controllers/' + file)
+    if (file.substr(-3) === '.js') {
+        let router = require('./controllers/' + file);
         router.controller(app);
     }
-})
+});
 
 // error handling middleware should be loaded after loading the routes
 if (app.get('env') === 'development') {
     // only use in development
-    app.use(errorHandler())
+    app.use(errorHandler());
 }
 
-let server = app.listen(port, () => console.log("App listening on port : " + port))
+let server = app.listen(port, () => console.log("App listening on port : " + port));
 
 // Increasing the timeout to 10 mins
 server.timeout = 600000;

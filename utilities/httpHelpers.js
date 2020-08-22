@@ -1,4 +1,4 @@
-module.exports.getDataFromServer = async (req, url, method, auth) => {
-    // if using fetch
-    // await fetch(url).then(res => res.json());
-}
+// A generic helper for POST/PUT/DELETE/GET Methods
+module.exports.dataFromServer = async (req, url, method, auth) => {
+
+};

@@ -15,48 +15,48 @@ const menuItemSchema = new Schema({
     code: {
         type: String
     },
-    type: { 
-        type: String 
+    type: {
+        type: String
     },
-    status: { 
+    status: {
         type: String,
         default: 'ACTIVE'
     },
     price: {
         type: Number
     },
-    description: { 
-        type: String 
+    description: {
+        type: String
     },
     discount: {
         type: Number
     },
-    discountType: { 
-        type: String 
+    discountType: {
+        type: String
     },
     imageUrls: {
         type: Array
     },
-    availability : {
+    availability: {
         type: String,
         default: 'YES'
     },
-    createdBy: { 
-        type: String 
+    createdBy: {
+        type: String
     },
-    updatedBy: { 
-        type: String 
+    updatedBy: {
+        type: String
     },
-    createdOn: { 
-        type: Date, 
-        default: Date.now 
+    createdOn: {
+        type: Date,
+        default: Date.now
     },
     createdOn_str: {
         type: String
     },
-    updatedOn: { 
-        type: Date, 
-        default: Date.now 
+    updatedOn: {
+        type: Date,
+        default: Date.now
     },
     updatedOn_str: {
         type: String
@@ -75,41 +75,41 @@ const customMenuSchema = new Schema({
     code: {
         type: String
     },
-    type: { 
-        type: String 
+    type: {
+        type: String
     },
-    status: { 
+    status: {
         type: String,
         default: 'ACTIVE'
     },
-    description: { 
-        type: String 
+    description: {
+        type: String
     },
-    menuItems : [ 
+    menuItems: [
         menuItemSchema
     ],
     discount: {
         type: Number
     },
-    discountType: { 
-        type: String 
+    discountType: {
+        type: String
     },
-    createdBy: { 
-        type: String 
+    createdBy: {
+        type: String
     },
-    updatedBy: { 
-        type: String 
+    updatedBy: {
+        type: String
     },
-    createdOn: { 
-        type: Date, 
-        default: Date.now 
+    createdOn: {
+        type: Date,
+        default: Date.now
     },
     createdOn_str: {
         type: String
     },
-    updatedOn: { 
-        type: Date, 
-        default: Date.now 
+    updatedOn: {
+        type: Date,
+        default: Date.now
     },
     updatedOn_str: {
         type: String
@@ -118,9 +118,9 @@ const customMenuSchema = new Schema({
 
 // Define MenuSchema
 const MenuSchema = new Schema({
-    menuId: { 
-        type: String, 
-        unique: true 
+    menuId: {
+        type: String,
+        unique: true
     },
     enterpriseId: {
         type: String
@@ -131,22 +131,22 @@ const MenuSchema = new Schema({
     menuItems: [
         menuItemSchema
     ],
-    createdBy: { 
-        type: String 
+    createdBy: {
+        type: String
     },
-    updatedBy: { 
-        type: String 
+    updatedBy: {
+        type: String
     },
-    createdOn: { 
-        type: Date, 
-        default: Date.now 
+    createdOn: {
+        type: Date,
+        default: Date.now
     },
     createdOn_str: {
         type: String
     },
-    updatedOn: { 
-        type: Date, 
-        default: Date.now 
+    updatedOn: {
+        type: Date,
+        default: Date.now
     },
     updatedOn_str: {
         type: String
@@ -158,11 +158,11 @@ const menuModel = mongoose.model('menu', MenuSchema);
 module.exports.menuModel = menuModel;
 module.exports.customMenuSchema = customMenuSchema;
 
-module.exports.findOneByEnterpriseId = function(id, callback){
-    menuModel.findOne({ 
-        enterpriseId: id 
+module.exports.findOneByEnterpriseId = function (id, callback) {
+    menuModel.findOne({
+        enterpriseId: id
     }).then((data) => {
-        if(data){
+        if (data) {
             callback(null, data);
         }
         else {
@@ -178,4 +178,4 @@ module.exports.findOneByEnterpriseId = function(id, callback){
             code: 500
         }, null);
     });
-}
+};
