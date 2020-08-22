@@ -25,7 +25,7 @@
     "helmet": "^3.16.0",
     "http": "0.0.0",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.22",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.11",
     "path": "^0.12.7",
